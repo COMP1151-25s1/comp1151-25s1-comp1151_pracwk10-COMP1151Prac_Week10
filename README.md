@@ -27,7 +27,7 @@ At the end of the last lesson, we asked you to set the following anchor on the H
 After setting your Health text, make sure you do the following:
 
 * Ensure the **Anchor** is set to the top left
-* Move the blue dot (the **Pivot**) from the middle of the text to some place sensible (the left side, the top left corner)
+* Move the blue [T] (the **Pivot**) from the middle of the text to some place sensible (the left side, the top left corner) - this is finicky to do in the scene view, it is recommended to use the fields in the **Inspector** instead
 * Give the text some an appropriate offset by changing the `Pos X` and `Pos Y` in the object's **Rect Transform** component.
 
 Ideally, your text element should look something like this, although again, keep in mind I used 999 as my health; your health number might be different
@@ -92,11 +92,13 @@ Once you've done that, all that's left is to hook it up. The setup is similar to
 * Slider: Set Value
 
 <img src="PracResources\images\06_SliderSetMax.png">
+
 We're going to use the `Slider Set Max Value` node to set the 100% value of our slider on startup. Since we know the player is starting on full health, we can simply get the current health of the player as the game starts.
 
 Now, we could simply set this manually in our `Slider` component, but if our starting health changes during testing, we'd have to go back and make sure we update this; it always makes sense to automate things like these to reduce the potential for bugs.
 
-<img src="PracResources\images\06_SliderVal.png">
+<img src="PracResources\images\07_SliderSetVal.png">
+
 This `Slider: Set Value` node will simply pass the number value of our health to our slider, and functions similarly to our SetTextHealth node. Obviously, the major difference between this and our text is what Unity does in the backend (it takes the value and updates the positions of the background and fill of the health bar accordingly).
 
 Look at the inputs for these two slider nodes, and have a go at figuring out the logic by yourself. It is pretty straightforward and shouldn't take you too long. Of course, a solution is provided below if you get stuck.
@@ -104,10 +106,10 @@ Look at the inputs for these two slider nodes, and have a go at figuring out the
 Once you've think you've got an answer, press **Play** and check that everything works. It may be ideal to change your health to be lower during testing (I set my player health from 999 to 99, for example). It's a good thing we automated the check for setting the health max value.
 
 
-|   | A Bug?                                                                                                                                                                                                                                                                                                                                                                                     |   |
-| --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+|   | A Bug?                                                                                                                                                                                                                                                                                                                                                                                      |   |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
 |   | Keen-eyed students might notice at this point that there was arguably a bug in last week's material. Technically, the player health can go below 0. While this is something invisible to us unless we were actively looking at variables (and is fine as an oversight when developing), you should consider edge cases like these when testing the game you are making for your assignment. |   |
-|   |                                                                                                                                                                                                                                                                                                                                                                                            |   |
+|   |                                                                                                                                                                                                                                                                                                                                                                                             |   |
 
 To end the day, it wouldn't hurt to resize your UI a few times just to triple check it's working.
 
